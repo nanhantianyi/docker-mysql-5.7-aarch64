@@ -71,8 +71,8 @@ RUN { \
 		echo mysql-community-server mysql-community-server/re-root-pass password ''; \
 		echo mysql-community-server mysql-community-server/remove-test-db select false; \
 	} | debconf-set-selections \
-	&& apt-get update && apt-get install -y libaio1 libaio-dev libhtml-template-perl libmecab2 libatomic1 libnuma-dev libnuma1 psmisc zlib1g-dev libbsd0 libc-dev-bin libc6-dev libedit2 libgdbm-compat4 libgdbm6 libperl5.28 libwrap0 linux-libc-dev lsb-base  netbase perl perl-modules-5.28 libevent-core-2.1-6 \
-	&& dpkg -i /deb/mysql-common_5.8+1.0.5_all.deb && dpkg -i /deb/*.deb \
+	&& apt-get update && apt-get install -y libaio1 libaio-dev libhtml-template-perl libmecab2 libatomic1 libnuma-dev libnuma1 psmisc zlib1g-dev libbsd0 libc-dev-bin libc6-dev libedit2 libgdbm-compat4 libgdbm6 libperl5.28 libwrap0 linux-libc-dev lsb-base  netbase perl perl-modules-5.28 libevent-core-2.1-6 libncurses6 \
+	&& dpkg -i /deb/mysql-common*.deb && dpkg -i /deb/*.deb \
 	&& rm -rf /var/lib/apt/lists/* && rm -rf /deb \
 	&& rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /var/run/mysqld \
 	&& chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
