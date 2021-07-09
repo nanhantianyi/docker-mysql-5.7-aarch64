@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-ADD docker/db/deb/ /deb
+ADD deb/ /deb
 
 RUN apt-get update && apt-get install -y ca-certificates \
 	&& sed -i "s/http:\/\/deb.debian.org/https:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
@@ -99,7 +99,7 @@ RUN { \
 
 VOLUME /var/lib/mysql
 
-COPY docker/db/docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
